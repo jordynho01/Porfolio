@@ -1,0 +1,1 @@
+# TODO: Formulaire Contact\n\n**Plan** :\n1. [DONE] Créer formulaire HTML fonctionnel dans contact.html\n2. [] Style CSS responsive dans contact.css (même design Accueil.css)\n3. [] Intégration backend EmailJS/Netlify ou PHP si serveur\n4. [] Test envoi\n5. [] Update nav liens\n\nProgress: 0/5

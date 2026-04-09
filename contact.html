@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Jordy Nyembo</title>
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="Accueil.css">
+</head>
+<body>
+  <!-- Header identique à Accueil.html -->
+  <div class="hauteur">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo"></div>
+        </div>
+        <nav class="main-nav" id="main-nav">
+          <ul>
+            <li><a href="Accueil.html#home">HOME</a></li>
+            <li><a href="Accueil.html#about">ABOUT</a></li>
+            <li><a href="Accueil.html#resume">RESUME</a></li>
+            <li><a href="Accueil.html#portfolio">PORTFOLIO</a></li>
+            <li><a href="Accueil.html#blog">BLOG</a></li>
+          </ul>
+        </nav>
+        <a href="#contact" class="btn">Contacter Moi</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Section Contact Hero -->
+  <section id="contact-hero" class="hero">
+    <h1>Contactez-moi</h1>
+    <p>Discutons de votre projet !</p>
+  </section>
+
+  <!-- Formulaire Contact -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Envoyez un message</h2>
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder="Votre nom" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder="Votre email" required>
+        </div>
+        <div class="form-group">
+          <input type="text" id="subject" name="subject" placeholder="Sujet" required>
+        </div>
+        <div class="form-group full">
+          <textarea id="message" name="message" placeholder="Votre message..." rows="6" required></textarea>
+        </div>
+        <button type="submit" class="btns submit-btn">Envoyer</button>
+      </form>
+      <p class="form-status" id="form-status"></p>
+    </div>
+  </section>
+
+  <!-- Infos Contact -->
+  <section class="contact-info">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Email</h3>
+          <p>Nyembojordy@gmail.com</p>
+        </div>
+        <div class="info-card">
+          <h3>Téléphone</h3>
+          <p>+243 829 961 353</p>
+        </div>
+        <div class="info-card">
+          <h3>LinkedIn</h3>
+          <p><a href="https://linkedin.com/in/jordy-nyembo">Mon profil</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Jordy Nyembo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- EmailJS (facile, gratuit, no backend) -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("YOUR_PUBLIC_KEY"); // Remplacer par ta clé EmailJS
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+      };
+
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+        .then(() => {
+          document.getElementById('form-status').textContent = 'Message envoyé avec succès !';
+          document.getElementById('form-status').style.color = '#4ade80';
+          this.reset();
+        }, (error) => {
+          document.getElementById('form-status').textContent = 'Erreur envoi. Réessayez.';
+          document.getElementById('form-status').style.color = '#ef4444';
+          console.error(error);
+        });
+    });
+
+    // Nav mobile (copié d'Accueil)
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+    navToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+    document.querySelectorAll('.main-nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

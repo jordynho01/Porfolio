@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Jordy Nyembo | Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="Accueil.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js">
+</head>
+<body>
+
+  <div class="hauteur">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo"></div>
+        </div>
+        <nav class="main-nav" id="main-nav">
+          <ul>
+            <li><a href="Accueil.html#home">HOME</a></li>
+            <li><a href="Accueil.html#about">ABOUT</a></li>
+            <li><a href="Accueil.html#resume">RESUME</a></li>
+            <li><a href="Accueil.html#portfolio">PORTFOLIO</a></li>
+            <li><a href="Accueil.html#blog">BLOG</a></li>
+          </ul>
+        </nav>
+        <a href="#contact" class="btn">Contacter Moi</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </header>
+  </div>
+  <!-- Dark/Light Toggle -->
+  <button class="theme-toggle" id="theme-toggle">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="profile-card">
+      <div class="profile-image">
+        <img src="images/image2.jpg" alt="Jordy Nyembo">
+      </div>
+      <h1>Jordy Nyembo</h1>
+      <h2>Étudiant Informatique & Freelance Créatif</h2>
+      <div class="contact-links">
+        <a href="mailto:your.email@example.com">📧 Email</a>
+        <a href="tel:+243829961353">📱 +243 829 961 353</a>
+        <a href="https://linkedin.com/in/jordy-nyembo">💼 LinkedIn</a>
+      </div>
+    </div>
+    <nav class="cv-nav">
+      <a href="#about" class="nav-link active">👤 Profil</a>
+      <a href="#skills" class="nav-link">⚡ Compétences</a>
+      <a href="#experience" class="nav-link">💼 Expérience</a>
+      <a href="#projects" class="nav-link">🚀 Projets</a>
+      <a href="#education" class="nav-link">🎓 Formation</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Profil -->
+    <section id="about" class="cv-section">
+      <h1 class="section-title">À propos</h1>
+<div class="profile-content">
+        <p>Étudiant passionné en <strong>Informatique</strong> à Kinshasa (RDC). Spécialiste <strong>Design Créatif</strong>, <strong>Développement Web</strong> et <strong>Sécurité</strong>.</p>
+        <p>Projets réels : sites modernes, logos/branding, dépannage PC/mobile, automatisation. <strong>Freelance disponible</strong>.</p>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="number" data-target="20">0</span><span>+</span>
+            <span>ans expérience</span>
+          </div>
+          <div class="stat">
+            <span class="number" data-target="15">0</span>
+            <span>projets</span>
+          </div>
+          <div class="stat">
+            <span class="number" data-target="50">0</span>
+            <span>clients</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compétences Radar + Barres -->
+    <section id="skills" class="cv-section">
+      <h1 class="section-title">Compétences</h1>
+      <div class="skills-wrapper">
+        <!-- Radar Chart -->
+        <div class="radar-container">
+          <canvas id="skillsRadar"></canvas>
+        </div>
+        <!-- Skills Bars -->
+        <div class="skills-bars">
+          <div class="skill-item">
+            <span>Photoshop / Design</span>
+            <div class="skill-bar">
+              <div class="skill-fill" data-width="95"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>HTML/CSS/JS</span>
+            <div class="skill-bar">
+              <div class="skill-fill" data-width="90"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>React / Next.js</span>
+            <div class="skill-bar">
+              <div class="skill-fill" data-width="85"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>Sécurité Informatique</span>
+            <div class="skill-bar">
+              <div class="skill-fill" data-width="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>Node.js / Backend</span>
+            <div class="skill-bar">
+              <div class="skill-fill" data-width="75"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expérience Timeline -->
+    <section id="experience" class="cv-section">
+      <h1 class="section-title">Expérience</h1>
+      <div class="timeline">
+        <div class="timeline-item" data-year="2024">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Freelance Designer & Développeur</h3>
+            <span class="timeline-date">2023 - Aujourd'hui</span>
+            <p>Création sites web, branding, dépannage PC/mobile pour clients Kinshasa.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-year="2023">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Étudiant Informatique</h3>
+            <span class="timeline-date">2022 - 2024</span>
+            <p>Université de Kinshasa - Spécialisation sécurité & développement web.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-year="2022">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Collaborations Projets</h3>
+            <span class="timeline-date">2021 - 2022</span>
+            <p>Premiers projets Photoshop, logos, sites statiques.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projets Grid 3D -->
+    <section id="projects" class="cv-section">
+      <h1 class="section-title">Projets</h1>
+      <div class="projects-grid">
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="images/image3.jpg" alt="Portfolio">
+          </div>
+          <h3>Portfolio Moderne</h3>
+          <p>Site responsive glassmorphism + animations.</p>
+          <span class="tech">HTML/CSS/JS</span>
+        </div>
+        <div class="project-card" data-category="design">
+          <div class="project-image">
+            <img src="images/image4.jpg" alt="Branding">
+          </div>
+          <h3>Branding Startup</h3>
+          <p>Logo + identité visuelle complète.</p>
+          <span class="tech">Photoshop/Illustrator</span>
+        </div>
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="images/image5.jpg" alt="E-commerce">
+          </div>
+          <h3>E-commerce Site</h3>
+          <p>Boutique responsive + panier.</p>
+          <span class="tech">React/Tailwind</span>
+        </div>
+      </div>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+      </div>
+    </section>
+
+    <!-- Formation -->
+    <section id="education" class="cv-section">
+      <h1 class="section-title">Formation</h1>
+      <div class="education-grid">
+        <div class="education-card">
+          <h3>Université de Kinshasa</h3>
+          <span>Informatique - Sécurité</span>
+          <span>2022 - 2025</span>
+        </div>
+        <div class="education-card">
+          <h3>Udemy Certifications</h3>
+          <span>React, Node.js, Photoshop</span>
+          <span>2023</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="portfolio.js"></script>
+</body>
+</html>
