@@ -1,0 +1,15 @@
+# Ignorer les dépendances
+node_modules/
+
+# Ignorer les fichiers de logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorer les fichiers temporaires
+.DS_Store
+*.env
+
+# Ignorer les fichiers de build locaux
+dist/
+build/
