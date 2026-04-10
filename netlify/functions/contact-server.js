@@ -1,38 +1,32 @@
-const express = require("express");
-const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
-const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.post("/contact", async (req, res) => {
-  const { name, email, message } = req.body;
-
-  let transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "nyembojordy@gmail.com",          // ton adresse Gmail
-      pass: "yxtb sjee kgpo wlpc"       // le mot de passe d’application généré
-    }
-  });
-
-  let mailOptions = {
-    from: email,
-    to: "nyembojordy@gmail.com",              // ton adresse pour recevoir le message
-    subject: `Nouveau message de ${name}`,
-    text: message
-  };
-
+exports.handler = async (event, context) => {
   try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).send("Message envoyé avec succès !");
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Erreur lors de l’envoi du message.");
-  }
-});
+    const { name, email, message } = JSON.parse(event.body);
 
-app.listen(3000, () => {
-  console.log("Serveur backend démarré sur http://localhost:3000");
-});
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GMAIL_USER, // défini dans Netlify
+        pass: process.env.GMAIL_PASS  // défini dans Netlify
+      }
+    });
+
+    await transporter.sendMail({
+      from: email,
+      to: process.env.GMAIL_USER,
+      subject: `Nouveau message de ${name}`,
+      text: message
+    });
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "Message envoyé avec succès !" })
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "Erreur lors de l'envoi", error: error.message })
+    };
+  }
+};
